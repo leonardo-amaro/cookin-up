@@ -1,5 +1,13 @@
 <script lang="ts">
-  export default {}
+  import { obterDados } from "@/http";
+
+  export default {
+    data() {
+      return {
+        categorias: obterDados()
+      }
+    }
+  }
 </script>
 
 <template>
@@ -10,7 +18,11 @@
       Selecione abaixo os ingredientes que você vai usar nessa receita:
     </p>
 
-    <ul class="categorias"></ul>
+    <ul class="categorias">
+      <li v-for="categoria in categorias" v-bind:key="categoria.nome">
+        {{ categoria.nome }}
+      </li>
+    </ul>
 
     <p class="paragrafo dica">
       *Atenção: consideramos que você tem em casa sal, pimenta e água.
