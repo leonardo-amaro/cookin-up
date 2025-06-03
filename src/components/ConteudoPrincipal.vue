@@ -1,5 +1,5 @@
 <script lang="ts">
-import SelecionarIngredientes from './SelecionarIngredientes.vue';
+  import SelecionarIngredientes from './SelecionarIngredientes.vue';
 
   export default {
     data() {
