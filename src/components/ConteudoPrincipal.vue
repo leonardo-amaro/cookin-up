@@ -5,10 +5,15 @@ import SelecionarIngredientes from './SelecionarIngredientes.vue';
 export default {
   data() {
     return {
-      ingredientes: ['Alho', 'Manteiga', 'Orégano', 'Sal']
+      ingredientes: [] as string[]
     }
   },
-  components: { SuaLista, SelecionarIngredientes }
+  components: { SuaLista, SelecionarIngredientes },
+  methods: {
+    adicionarIngrediente(ingrediente: string) {
+      this.ingredientes.push(ingrediente);
+    }
+  }
 }
 </script>
 
@@ -16,7 +21,9 @@ export default {
   <main class="conteudo-principal">
     <SuaLista :ingredientes="ingredientes" />
 
-    <SelecionarIngredientes />
+    <SelecionarIngredientes
+      @adicionar-ingrediente="adicionarIngrediente"
+    />
   </main>
 </template>
 
